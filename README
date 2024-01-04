@@ -1,0 +1,15 @@
+Task Scope
+
+The front end must take in an input of dice of any kind, up to a maximum of 10 of each type.
+
+A function must take in input of a how many dice of each kind are to be rolled, roll them, and return the results of the rolls
+    The function should take in an object of key value pairs, with the type of die the key and number to roll as the value.
+    The function should destructure the object into variables with a number.
+    For each variable, a for loop should run for as long as the number vale of the variable, and push a dice value array to a parent array.
+    The function should return that array.
+
+2) Create a front end to take in an input of the number and type of dice, and display the results of rolling them
+
+1) Create JavaScript function to generate random numbers for dice
+
+3) Create a database in local storage to store the last rolls 

@@ -1,0 +1,17 @@
+{
+  "name": "dice-roller",
+  "version": "1.0.0",
+  "description": "an application to roll dice for ttrpgs such as dungeons and dragons",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
