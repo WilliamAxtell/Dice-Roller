@@ -11,43 +11,11 @@ html {
     width: 100vw;
     height: 100vh;
     margin: 0;
-    grid-template-columns: 10% 20% auto;
-    grid-template-rows: 10% 10% auto;
-    grid-template-areas: 
-      "title title title"
-      "roll-history-title roll-history roll-history"
-      "dice-picker dice-picker dice-tray";
-  }
-  
-  #title {
-    grid-area: title;
-    background-color: var(--main-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  #title h1 {
-    font-size: 48px;
-    color: var(--text-color);
-  }
-  
-  #roll-history-title {
-    border: 2px solid black;
-    grid-area: roll-history-title;
-  }
-  
-  #roll-history {
-    display: flex;
-    border: solid black 2px;
-    align-items: center;
-    grid-area: roll-history;
   }
   
   #dice-picker {
     box-sizing: border-box;
     height: 600px;
-    grid-area: dice-picker;
     margin: 2em;
     border: 5px solid black;
     border-radius: 1em;
@@ -60,7 +28,7 @@ html {
     background-color: var(--main-color);
   }
   
-  #dice-picker h2 {
+  #dice-picker h1 {
     grid-area: 1 / 1 / 2 / 3;
     color: var(--text-color);
     text-transform: capitalize;
@@ -101,7 +69,6 @@ html {
     width: 520px;
     height: 600px;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    grid-area: dice-tray;
   }
   
   #dice-tray {
@@ -110,4 +77,16 @@ html {
     width: 510px;
     height: 590px;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+  
+  #roll-history-title {
+    display: flex;
+    border: solid black 2px;
+    align-items: center;
+  }
+
+  @media screen and (min-width: 600px) {
+    body {
+      grid-template-columns: auto 1fr auto;
+    } 
   }

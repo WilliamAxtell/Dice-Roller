@@ -12,11 +12,12 @@ const roller = (dice) => {
 
     const { d4, d6, d8, d10, d12, d20 } = dice;
 
-    console.log(d4, d6, d8, d10, d12, d20);
-
     for (let die in dice) {
-        result += dice[die] * Math.floor(Math.random() * die.slice(1) + 1);
+        for (let i = 0; i < dice[die]; i++) {
+            result.push([die, Math.floor(Math.random() * die.slice(1) + 1)]);
+        }
     }
+    console.log(result);
     return result;
 }
 
