@@ -3,6 +3,6 @@ const router = express.Router();
 
 const { rollDice } = require('../controllers/tasks.js');
 
-router.route('/').post(rollDice);
+router.route('/ajax-roller').post(rollDice);
 
 module.exports = router;
