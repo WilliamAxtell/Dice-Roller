@@ -29,11 +29,15 @@ dicePicker.addEventListener('submit', (e)=>{
     },
     body: JSON.stringify(dice)
   })
+  .then((response) => {
+    return response.json()
+  })
   .then((res) => {
-    if (res.status === 200) {
-      console.log("Post successfully created!")
-      console.log(res)
-    }
+    console.log(res.status)
+    // if (res.status === 200) {
+    //   console.log("Post successfully created!")
+    //   console.log(res)
+    // }
   })
   .catch((error) => {
     console.log(error)

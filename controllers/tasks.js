@@ -9,7 +9,7 @@ const rollDice = (req, res) => {
       }
   }
 
-  res.status(200).json({ result });
+  res.status(200).send(result);
 };
 
 module.exports = { rollDice };
