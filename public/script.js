@@ -29,15 +29,9 @@ dicePicker.addEventListener('submit', (e)=>{
     },
     body: JSON.stringify(dice)
   })
-  .then((response) => {
-    return response.json()
-  })
-  .then((res) => {
-    console.log(res.status)
-    // if (res.status === 200) {
-    //   console.log("Post successfully created!")
-    //   console.log(res)
-    // }
+  .then(res => res.json())
+  .then(function(data) {
+   diceScatter(data)
   })
   .catch((error) => {
     console.log(error)
@@ -45,3 +39,7 @@ dicePicker.addEventListener('submit', (e)=>{
   
   diceInput.forEach(die => die.value = '0');
 })
+
+function diceScatter(dice) {
+  console.log(dice[0])
+}

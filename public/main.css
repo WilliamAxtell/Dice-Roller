@@ -8,6 +8,7 @@ html {
   body {
     font-family: 'Jim Nightshade', cursive;
     display: grid;
+    justify-items: center;
     width: 100vw;
     height: 100vh;
     margin: 0;
@@ -16,7 +17,7 @@ html {
   #dice-picker {
     box-sizing: border-box;
     height: 600px;
-    margin: 2em;
+    margin: auto 2em;
     border: 5px solid black;
     border-radius: 1em;
     min-width: 200px;
