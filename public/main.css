@@ -9,6 +9,7 @@ html {
     font-family: 'Jim Nightshade', cursive;
     display: grid;
     justify-items: center;
+    align-items: center;
     width: 100vw;
     height: 100vh;
     margin: 0;
@@ -65,7 +66,6 @@ html {
   }
   
   #dice-border {
-    place-self: center;
     background-color: black;
     width: 520px;
     height: 600px;
@@ -77,6 +77,55 @@ html {
     background-color: white;
     width: 510px;
     height: 590px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+
+  #dice-container {
+    transform: translateY(50%);
+    width: 100%;
+    height: 50%;
+    background-color: turquoise;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 2px;    
+  }
+
+  .rolled-die {
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-color: red;
+    display: grid;
+    place-items: center;
+    font-size: 36px;
+  }
+
+  .rolled-die p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
+
+  .clip-path-d4{
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);;
+  }
+
+  .clip-path-d6{
+
+  }
+
+  .clip-path-d8{
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  }
+
+  .clip-path-d10{
+    clip-path: polygon(50% 10%, 100% 50%, 50% 90%, 0% 50%);
+  }
+
+  .clip-path-d12{
+    clip-path: polygon(50% 0%, 80% 10%, 100% 35%, 100% 70%, 80% 90%, 50% 100%, 20% 90%, 0% 70%, 0% 35%, 20% 10%);
+  }
+
+  .clip-path-d20{
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   }
   
