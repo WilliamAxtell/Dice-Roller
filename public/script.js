@@ -10,9 +10,6 @@ const d10Input = document.getElementById('d10');
 const d12Input = document.getElementById('d12');
 const d20Input = document.getElementById('d20');
 
-let numbers = Array.from({length: 60}, (_, i) => i + 1);
-console.log(numbers)
-
 const diceClipPaths = {
   'd4': 'clip-path-d4',
   'd6': 'clip-path-d6',
@@ -64,8 +61,27 @@ function insertDivs(num) {
 }
 
 function diceScatter(dice) {
-  let targetDiv = document.querySelector('#dice-container > :nth-child(1)');
+  let numbers = Array.from({length: 60}, (_, i) => i);
+  
+  let selector = Math.floor(Math.random() * numbers.length);
+
+  let placement = numbers.splice(selector, 1)[0];
+
+  let targetDiv = diceContainer.children[placement];
+
   targetDiv.classList.add('rolled-die', diceClipPaths[dice[0][0]]);
   targetDiv.innerHTML = `<p>${dice[0][1]}</p>`;
-  console.log(dice[0][1])
 }
+// function diceScatter(dice) {
+//   let placement;
+//   do {
+//     placement = Math.floor(Math.random() * 60);
+//   } while (diceContainer.children[placement].classList.contains('rolled-die'))
+
+//   console.log(placement)
+//   let targetDiv = diceContainer.children[placement];
+
+//   //let targetDiv = document.querySelector('#dice-container > :nth-child(' + placement + ')');
+//   targetDiv.classList.add('rolled-die', diceClipPaths[dice[0][0]]);
+//   targetDiv.innerHTML = `<p>${dice[0][1]}</p>`;
+// }
