@@ -80,7 +80,7 @@ function diceScatter(dice) {
     let diceClass = diceClipPaths[dice[i][0]];
 
     targetDiv.classList.add('rolled-die');
-    targetDiv.innerHTML = `<div class="${diceClass}"><p>${dice[i][1]}</p></div>`;
+    targetDiv.innerHTML = `<div><p class="${diceClass}">${dice[i][1]}</p></div>`;
   }
 
 }
