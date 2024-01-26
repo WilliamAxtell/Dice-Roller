@@ -23,7 +23,14 @@ dicePicker.addEventListener('submit', (e)=>{
   e.preventDefault();
   
   insertDivs(60);
-  
+
+  if (Number(d4Input.value) 
+    + Number(d6Input.value) 
+    + Number(d8Input.value) 
+    + Number(d10Input.value) 
+    + Number(d12Input.value) 
+    + Number(d20Input.value) > 100) {return}
+
   const dice = {
     'd4': d4Input.value,
     'd6': d6Input.value,
@@ -63,14 +70,19 @@ function insertDivs(num) {
 function diceScatter(dice) {
   let numbers = Array.from({length: 60}, (_, i) => i);
   
-  let selector = Math.floor(Math.random() * numbers.length);
+  for (let i = 0; i < dice.length; i++) {
+    let selector = Math.floor(Math.random() * numbers.length);
 
-  let placement = numbers.splice(selector, 1)[0];
+    let placement = numbers.splice(selector, 1)[0];
 
-  let targetDiv = diceContainer.children[placement];
+    let targetDiv = diceContainer.children[placement];
 
-  targetDiv.classList.add('rolled-die', diceClipPaths[dice[0][0]]);
-  targetDiv.innerHTML = `<p>${dice[0][1]}</p>`;
+    let diceClass = diceClipPaths[dice[i][0]];
+
+    targetDiv.classList.add('rolled-die');
+    targetDiv.innerHTML = `<div class="${diceClass}"><p>${dice[i][1]}</p></div>`;
+  }
+
 }
 // function diceScatter(dice) {
 //   let placement;
