@@ -80,20 +80,7 @@ function diceScatter(dice) {
     let diceClass = diceClipPaths[dice[i][0]];
 
     targetDiv.classList.add('rolled-die');
-    targetDiv.innerHTML = `<div><p class="${diceClass}">${dice[i][1]}</p></div>`;
+    targetDiv.innerHTML = `<div class="${diceClass}"><p class="numbers">${dice[i][1]}</p></div>`;
   }
 
 }
-// function diceScatter(dice) {
-//   let placement;
-//   do {
-//     placement = Math.floor(Math.random() * 60);
-//   } while (diceContainer.children[placement].classList.contains('rolled-die'))
-
-//   console.log(placement)
-//   let targetDiv = diceContainer.children[placement];
-
-//   //let targetDiv = document.querySelector('#dice-container > :nth-child(' + placement + ')');
-//   targetDiv.classList.add('rolled-die', diceClipPaths[dice[0][0]]);
-//   targetDiv.innerHTML = `<p>${dice[0][1]}</p>`;
-// }
