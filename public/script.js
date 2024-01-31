@@ -29,7 +29,7 @@ dicePicker.addEventListener('submit', (e)=>{
     + Number(d8Input.value) 
     + Number(d10Input.value) 
     + Number(d12Input.value) 
-    + Number(d20Input.value) > 100) {return}
+    + Number(d20Input.value) > 60) {return}
 
   const dice = {
     'd4': d4Input.value,
@@ -69,8 +69,10 @@ function insertDivs(num) {
 
 function diceScatter(dice) {
   let numbers = Array.from({length: 60}, (_, i) => i);
-  
+  let diceTotal = 0;
   for (let i = 0; i < dice.length; i++) {
+    diceTotal += dice[i][1];
+
     let selector = Math.floor(Math.random() * numbers.length);
 
     let placement = numbers.splice(selector, 1)[0];
@@ -81,6 +83,9 @@ function diceScatter(dice) {
 
     targetDiv.classList.add('rolled-die');
     targetDiv.innerHTML = `<div class="${diceClass}"><p class="numbers">${dice[i][1]}</p></div>`;
+    console.log('task1')
   }
-
+  console.log('task2')  
+  document.getElementById('dice-total').innerHTML = `<h2>Total: ${diceTotal}</h2>`;
+  console.log(diceTotal);
 }

@@ -8,6 +8,9 @@ html {
   body {
     font-family: 'Jim Nightshade', cursive;
     display: grid;
+    grid-template-areas:
+      'tray tray'
+      'roller history';
     justify-items: center;
     align-items: center;
     width: 100vw;
@@ -17,9 +20,10 @@ html {
   }
   
   #dice-picker {
+    grid-area: roller;
     box-sizing: border-box;
     height: 600px;
-    margin: auto 2em;
+    margin: 2em;
     border: 5px solid black;
     border-radius: 1em;
     min-width: 200px;
@@ -41,11 +45,35 @@ html {
     margin-block-end: 0;
   }
   
-  #dice-picker input[type="number"], #dice-picker label {
+  #dice-picker label {
     height: 50px;
     width: 50px;
     display: grid;
     place-items: end start;
+  }
+  
+  #dice-picker input[type="number"] {
+    height: 50px;
+    width: 50px;
+    font-family: 'Jim Nightshade', cursive;
+    font-size: 32px;
+    overflow: hidden;
+    text-align: center;
+    padding: 0;
+    background-color: var(--text-color);
+    box-sizing: border-box;
+  }
+
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type=number] {
+    -moz-appearance: textfield;
   }
   
   #d4 {
@@ -63,6 +91,7 @@ html {
   }
   
   #dice-border {
+    grid-area: tray;
     background-color: black;
     width: 520px;
     height: 600px;
@@ -80,6 +109,15 @@ html {
   #dice-total {
     width: 100%;
     height: 25%;
+    display: grid;
+    place-items: center;
+  }
+
+  #dice-total h2 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-size: 48px;
+    color: var(--text-color);
   }
 
   #dice-container {
@@ -149,13 +187,24 @@ html {
   }
   
   #roll-history-title {
-    display: flex;
-    border: solid black 2px;
-    align-items: center;
+    grid-area: history;
+    box-sizing: border-box;
+    height: 600px;
+    margin: 2em;
+    border: 5px solid black;
+    border-radius: 1em;
+    min-width: 200px;
+    display: grid;
+    grid-template-rows: repeat(8,1fr);
+    grid-template-columns: 49% 49% ;
+    gap: 2%;
+    place-items: center;
+    background-color: var(--main-color);
   }
 
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 1050px) {
     body {
-      grid-template-columns: auto 1fr auto;
+      grid-template-areas: 
+        'roller tray history';
     } 
   }
