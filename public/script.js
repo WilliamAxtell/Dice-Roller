@@ -49,7 +49,11 @@ dicePicker.addEventListener('submit', (e)=>{
   })
   .then(res => res.json())
   .then(function(data) {
-   diceScatter(data)
+    //console.log(data);
+    diceScatter(data)
+    //console.log(data)
+    lastRolls(data)
+   // console.log(data)
   })
   .catch((error) => {
     console.log(error)
@@ -70,6 +74,7 @@ function insertDivs(num) {
 function diceScatter(dice) {
   let numbers = Array.from({length: 60}, (_, i) => i);
   let diceTotal = 0;
+
   for (let i = 0; i < dice.length; i++) {
     diceTotal += dice[i][1];
 
@@ -83,9 +88,31 @@ function diceScatter(dice) {
 
     targetDiv.classList.add('rolled-die');
     targetDiv.innerHTML = `<div class="${diceClass}"><p class="numbers">${dice[i][1]}</p></div>`;
-    console.log('task1')
   }
-  console.log('task2')  
+
   document.getElementById('dice-total').innerHTML = `<h2>Total: ${diceTotal}</h2>`;
-  console.log(diceTotal);
+}
+
+function lastRolls(oldDice) {
+  console.log(oldDice);
+  if (!localStorage.getItem("lastDice")) {
+    let newDiceArr = JSON.parse(JSON.stringify(oldDice)).reverse();
+    console.log(newDiceArr);
+    localStorage.setItem("lastDice", JSON.stringify(newDiceArr));
+    return;
+  }
+  
+  let oldDiceArr = JSON.parse(localStorage.getItem("lastDice"));
+  let newDiceArr = JSON.parse(JSON.stringify(oldDice));
+  console.log(oldDice);
+
+  for (let i = 0; i < newDiceArr.length; i++) {
+    oldDiceArr.unshift(newDiceArr[i]);
+  }
+
+  if (oldDiceArr.length > 10) {
+    oldDiceArr = oldDiceArr.slice(0,10);
+  }
+  //console.log(oldDiceArr);
+  localStorage.setItem("lastDice", JSON.stringify(oldDiceArr));
 }
