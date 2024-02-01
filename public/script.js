@@ -97,12 +97,13 @@ function lastRolls(oldDice) {
   console.log(oldDice);
   if (!localStorage.getItem("lastDice")) {
     let newDiceArr = JSON.parse(JSON.stringify(oldDice)).reverse();
-    console.log(newDiceArr);
+    newDiceArr.splice(10);
     localStorage.setItem("lastDice", JSON.stringify(newDiceArr));
     return;
   }
   
   let oldDiceArr = JSON.parse(localStorage.getItem("lastDice"));
+  
   let newDiceArr = JSON.parse(JSON.stringify(oldDice));
   console.log(oldDice);
 
@@ -110,9 +111,7 @@ function lastRolls(oldDice) {
     oldDiceArr.unshift(newDiceArr[i]);
   }
 
-  if (oldDiceArr.length > 10) {
-    oldDiceArr = oldDiceArr.slice(0,10);
-  }
-  //console.log(oldDiceArr);
+  oldDiceArr.splice(10);
+
   localStorage.setItem("lastDice", JSON.stringify(oldDiceArr));
 }
