@@ -152,7 +152,7 @@ html {
     overflow: hidden;
   }
 
-  #d4-label p, .rolled-die .clip-path-d4 p {
+  #d4-label p, .rolled-die .clip-path-d4 p, #roll-history-dice .clip-path-d4 p {
     height: 90%;
     width: 100%
   }
