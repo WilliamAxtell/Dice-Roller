@@ -13,7 +13,7 @@
 </head>
 <body>
   <form id="dice-picker" method="post">
-    <h1>Dice Roller</h1>
+    <h1 class="section-titles">Dice Roller</h1>
     <label id="d4-label" for="d4" class="clip-path-d4"><p class="numbers">4</p></label>
     <input id="d4" name="d4" value="0" type="number" min="0" max="60">
     <label id="d6-label" for="d6" class="clip-path-d6"><p class="numbers">6</p></label>
@@ -95,7 +95,12 @@
       </div>
     </div>
   </div>
-  <div id="roll-history-title"><p>Last Ten Rolls</p></div>
+  <div id="roll-history">
+    <h2 class="section-titles">Last Ten Rolls</h2>
+    <div id="roll-history-dice">
+
+    </div>
+  </div>
   <script src="script.js"></script>   
 </body>
 </html>
